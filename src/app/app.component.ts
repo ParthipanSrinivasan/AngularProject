@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl,FormGroup } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -10,10 +10,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 export class AppComponent{
   title = 'blog';
-  data={
-    name:'sokka',
-    age:21,
-    email:"parhtipan.@2001gmail"
-  }
+ parentFuncation(data:any){
+  console.log(data);
+ }
 }
 
