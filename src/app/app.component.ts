@@ -9,9 +9,7 @@ import { Routes, RouterModule } from '@angular/router';
 })
 
 export class AppComponent{
-  title = 'blog';
- parentFuncation(data:any){
-  console.log(data);
+  
  }
-}
+
 
