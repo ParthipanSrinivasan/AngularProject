@@ -4,10 +4,11 @@ import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { ServerComponent } from './server/server.component';
 import { UserComponent } from './user/user.component';
+import { DasboardComponent } from './dasboard/dasboard.component';
 
 
 const routes:Routes = [
-  {
+ /* {
     component:AboutComponent,
     path:'about'
   },
@@ -22,7 +23,11 @@ const routes:Routes = [
   {
     component:UserComponent,
     path:'user'
-  }
+  },
+  {
+    component:DasboardComponent,
+    path:'dasbord'
+  } */
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

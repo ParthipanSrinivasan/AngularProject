@@ -10,8 +10,9 @@ import { UserComponent } from './user/user.component';
 import { AboutComponent } from './about/about.component';
 import { Routes, RouterModule } from '@angular/router';
 import { DasboardComponent } from './dasboard/dasboard.component';
-
-
+import { HttpClientModule } from '@angular/common/http';
+import { HttpService } from './http.service';
+import { NgClass, NgStyle } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -27,10 +28,11 @@ import { DasboardComponent } from './dasboard/dasboard.component';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule
 
   ],
   exports: [RouterModule],
-  providers: [], 
+  providers: [HttpService], 
   bootstrap: [AppComponent]
 })   
 export class AppModule { 
