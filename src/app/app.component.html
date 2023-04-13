@@ -1,8 +1,9 @@
 <header><app-dasboard></app-dasboard></header>
 <body>
     <router-outlet></router-outlet>
+
     <table>
-        <thead border="1">
+        <thead>
             <tr>
             <th>USER_ID</th>
             <th>NAME</th>
@@ -11,7 +12,7 @@
             </tr>
         </thead>
         <tbody *ngFor="let item of value">
-            <tr> 
+            <tr  (click)="myClickFunction(item.name)"> 
                 <td>{{item.id}}</td>
                 <button><td>{{item.name}}</td></button>
                 <td>{{item.user}}</td>
@@ -19,17 +20,13 @@
             </tr>
         </tbody>
     </table>
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+            <label for="">Username</label>
+            <input type="text" formControlName="firstName"><br>
+           <input type="submit" value="Submit">
+    </form>
 </body>
 <footer>
-    <p [ngClass]="ele">
-        helo
-    </p>
-    <button (click)="show = !show">{{show ? 'hide' : 'show'}}</button>
-    show = {{show}}
-    <br>
-    <div *ngIf="show; else elseBlock">Text to show</div>
-    <ng-template #elseBlock>Alternate text while primary text is hidden</ng-template>
-
     <app-home></app-home>
 </footer>
 
