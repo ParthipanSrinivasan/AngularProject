@@ -1,30 +1,32 @@
 <header><app-dasboard></app-dasboard></header>
 <body>
     <router-outlet></router-outlet>
-
-    <table>
-        <thead>
-            <tr>
-            <th>USER_ID</th>
-            <th>NAME</th>
-            <th>USER_NAME</th>
-            <th>USER_EMAIL</th>
+    <div class="container">
+       <table class="table">
+        <thead class="px-2">
+            <tr class="col">
+             <th>ID</th>
+             <th>Title</th>
             </tr>
-        </thead>
-        <tbody *ngFor="let item of value">
-            <tr  (click)="myClickFunction(item.name)"> 
-                <td>{{item.id}}</td>
-                <button><td>{{item.name}}</td></button>
-                <td>{{item.user}}</td>
-                <td>{{item.email}}</td>
+         </thead>
+         <tbody>
+            <tr *ngFor="let post of POSTS | paginate:{
+                itemsPerPage: tableSize,
+                currentPage: page,
+                totalItems: count}; let i =index ">
+             <td >{{post.id}}</td>
+             <td >{{post.title}}</td>
             </tr>
-        </tbody>
-    </table>
-    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-            <label for="">Username</label>
-            <input type="text" formControlName="firstName"><br>
-           <input type="submit" value="Submit">
-    </form>
+         </tbody>
+       </table>
+       <pagination-controls
+       previousLabel="Prev"
+       nextLabel="Next"
+       (pageChange)="onTableDataChange($event)"
+       >
+       
+       </pagination-controls>
+    </div>
 </body>
 <footer>
     <app-home></app-home>

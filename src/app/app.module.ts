@@ -13,6 +13,7 @@ import { DasboardComponent } from './dasboard/dasboard.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpService } from './http.service';
 import { NgClass, NgStyle } from '@angular/common';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -28,8 +29,8 @@ import { NgClass, NgStyle } from '@angular/common';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
-
+    HttpClientModule,
+    NgxPaginationModule
   ],
   exports: [RouterModule],
   providers: [HttpService], 

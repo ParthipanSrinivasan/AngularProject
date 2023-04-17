@@ -13,28 +13,29 @@ import { FormBuilder } from '@angular/forms';
 })
 
 export class AppComponent{
- // nam: any[]=['anil','dis','assd','hadfjk'];
-  value: any=[];
- // name ='';
-  profileForm = new FormGroup({
-    firstName: new FormControl(''),
-  });
-   myClickFunction(value:any) { 
-   console.log(value);
-  // this.name+=value;
-  this.profileForm?.get('firstName')?.setValue(value);
-}
-onSubmit() {
-  console.log(this.profileForm.value);
- 
-}
-constructor(private httpService: HttpService, fb: FormBuilder) {
-    this.httpService.sendGetRequest().subscribe((data:any) => {
-        this.value=data;
-        console.log(this.value);
-    });
-  console.log(this.value);
+  title = 'pagination';
+  POSTS:any;
+  page: number = 1;
+  count: number = 0;
+  tableSize: number = 10;
+  tableSizes: any = [5, 10, 15, 20];
+  constructor (private httpService:HttpService){}
+  ngOnInit():void{
+    this.postList();
+  }
+ postList(): void{
+    this.httpService.getAllPosts().subscribe((response) => {
+     this.POSTS = response.posts;
+     console.log(this.POSTS);
+  })
+  }
+  onTableDataChange(event: any){
+    this.page = event;
+    this.postList();
+  }
+  onTableSizeChange(event: any): void{
+    this.tableSize = event.target.value;
+    this.page = 1;
+    this.postList();
   }
 }
-
-
