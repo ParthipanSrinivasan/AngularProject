@@ -26,7 +26,7 @@ export class AppComponent{
  postList(){
     this.httpService.getUsers(this.pagination).subscribe((response:any) => {
      this.POSTS = response.posts;
-    this.allUsers = response.limit;
+    this.allUsers = response.total;
      console.log(this.POSTS);
   })
   }
