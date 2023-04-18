@@ -5,6 +5,7 @@
        <table class="table">
         <thead class="px-2">
             <tr class="col">
+            <th>S.no</th>
              <th>ID</th>
              <th>Title</th>
              <th>Id</th>
@@ -12,9 +13,10 @@
          </thead>
          <tbody>
             <tr *ngFor="let post of POSTS | paginate:{
-                itemsPerPage: 10,
+                itemsPerPage: itemsPerPage,
                 currentPage: pagination,
-                totalItems: allUsers}; let i =index ">
+                totalItems: allUsers}; let i =index">
+                <td>{{itemsPerPage *(pagination-1)+i+1}}</td>
              <td >{{post.id}}</td>
              <td >{{post.title}}</td>
              <td>{{post.userId}}</td>
