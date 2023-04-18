@@ -8,26 +8,26 @@ import { DasboardComponent } from './dasboard/dasboard.component';
 
 
 const routes:Routes = [
- /* {
-    component:AboutComponent,
-    path:'about'
-  },
   {
     component:HomeComponent,
     path:'home'
-  },
-  {
-    component:ServerComponent,
-    path:'server'
   },
   {
     component:UserComponent,
     path:'user'
   },
   {
+    component:AboutComponent,
+    path:'about'
+  },
+  {
+    component:ServerComponent,
+    path:'server'
+  },
+  {
     component:DasboardComponent,
-    path:'dasbord'
-  } */
+    path:'daseboard'
+  } 
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

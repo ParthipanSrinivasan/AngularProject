@@ -13,25 +13,5 @@ import { FormBuilder } from '@angular/forms';
 })
 
 export class AppComponent{
-  title = 'pagination';
-  POSTS:any;
-  itemsPerPage: number = 30;
-  allUsers: number = 0;
-  pagination: number =1;
-  constructor (private httpService:HttpService){}
-  ngOnInit():void{
-    this.postList();
-    console.log(this.postList());
-  }
- postList(){
-    this.httpService.getUsers(this.pagination).subscribe((response:any) => {
-     this.POSTS = response.posts;
-    this.allUsers = response.total;
-     console.log(this.POSTS);
-  })
-  }
- renderPage(event:number){
-  this.pagination =event
-  this.postList();
- }
+  
 }

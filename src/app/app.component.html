@@ -1,36 +1,6 @@
 <header><app-dasboard></app-dasboard></header>
 <body>
     <router-outlet></router-outlet>
-    <div class="container">
-       <table class="table">
-        <thead class="px-2">
-            <tr class="col">
-            <th>S.no</th>
-             <th>ID</th>
-             <th>Title</th>
-             <th>Id</th>
-            </tr>
-         </thead>
-         <tbody>
-            <tr *ngFor="let post of POSTS | paginate:{
-                itemsPerPage: itemsPerPage,
-                currentPage: pagination,
-                totalItems: allUsers}; let i =index">
-                <td>{{itemsPerPage *(pagination-1)+i+1}}</td>
-             <td >{{post.id}}</td>
-             <td >{{post.title}}</td>
-             <td>{{post.userId}}</td>
-            </tr>
-         </tbody>
-       </table>
-       <pagination-controls
-       previousLabel="Prev"
-       nextLabel="Next"
-       (pageChange)="renderPage($event)"
-       >
-       
-       </pagination-controls>
-    </div>
 </body>
 <footer>
     <app-home></app-home>
