@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-const endpoint='https://dummyjson.com/posts?limit=150'
 @Injectable({
   providedIn: 'root'
 })
