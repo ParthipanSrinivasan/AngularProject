@@ -9,6 +9,11 @@ export class HttpService {
  private url= 'https://dummyjson.com/posts';
  constructor(private httpClient: HttpClient) { }
  getUsers(page: number){
-  return this.httpClient.get(this.url + '?skip=' + (page*30));
+  if(1==page){
+    return this.httpClient.get(this.url + '?skip=' + (page*0));
+  }
+  else{
+    return this.httpClient.get(this.url + '?skip=' + ((page-1)*30));
+  }
  }
 }

@@ -15,7 +15,7 @@ import { FormBuilder } from '@angular/forms';
 export class AppComponent{
   title = 'pagination';
   POSTS:any;
-  itemsPerPage: number = 7;
+  itemsPerPage: number = 30;
   allUsers: number = 0;
   pagination: number =1;
   constructor (private httpService:HttpService){}
