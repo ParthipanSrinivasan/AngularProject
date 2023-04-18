@@ -15,27 +15,22 @@ import { FormBuilder } from '@angular/forms';
 export class AppComponent{
   title = 'pagination';
   POSTS:any;
-  page: number = 1;
-  count: number = 0;
-  tableSize: number = 10;
-  tableSizes: any = [5, 10, 15, 20];
+  allUsers: number = 0;
+  pagination: number =1;
   constructor (private httpService:HttpService){}
   ngOnInit():void{
     this.postList();
+    console.log(this.postList());
   }
- postList(): void{
-    this.httpService.getAllPosts().subscribe((response) => {
+ postList(){
+    this.httpService.getUsers(this.pagination).subscribe((response:any) => {
      this.POSTS = response.posts;
+     this.allUsers = response.total;
      console.log(this.POSTS);
   })
   }
-  onTableDataChange(event: any){
-    this.page = event;
-    this.postList();
-  }
-  onTableSizeChange(event: any): void{
-    this.tableSize = event.target.value;
-    this.page = 1;
-    this.postList();
-  }
+ renderPage(event:number){
+  this.pagination =event
+  this.postList();
+ }
 }

@@ -7,22 +7,24 @@
             <tr class="col">
              <th>ID</th>
              <th>Title</th>
+             <th>Id</th>
             </tr>
          </thead>
          <tbody>
             <tr *ngFor="let post of POSTS | paginate:{
-                itemsPerPage: tableSize,
-                currentPage: page,
-                totalItems: count}; let i =index ">
+                itemsPerPage: 10,
+                currentPage: pagination,
+                totalItems: allUsers}; let i =index ">
              <td >{{post.id}}</td>
              <td >{{post.title}}</td>
+             <td>{{post.userId}}</td>
             </tr>
          </tbody>
        </table>
        <pagination-controls
        previousLabel="Prev"
        nextLabel="Next"
-       (pageChange)="onTableDataChange($event)"
+       (pageChange)="renderPage($event)"
        >
        
        </pagination-controls>
