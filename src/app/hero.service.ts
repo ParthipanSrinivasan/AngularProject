@@ -73,9 +73,9 @@ export class HeroService {
         });
         return obser;
       }
-      ngAfter(){
+      ngAfter(value:any){
         const obser=new Observable((val)=>{
-          val.next(this.elements)
+          val.next(this.elements.slice(0,value));
         })
         return obser;
       }
