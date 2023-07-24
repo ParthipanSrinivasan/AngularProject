@@ -73,9 +73,10 @@ export class HeroService {
         });
         return obser;
       }
-      ngAfter(value:any){
+      ngAfter(pageSize:any,pageIndex:any){
         const obser=new Observable((val)=>{
-          val.next(this.elements.slice(0,value));
+          val.next(this.elements.slice(pageIndex*pageSize,
+            pageIndex*pageSize+pageSize));
         })
         return obser;
       }
