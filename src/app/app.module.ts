@@ -16,10 +16,12 @@ import { RouterModule } from '@angular/router';
 import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
-    PaginatorComponent
+    PaginatorComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +38,7 @@ import { FormsModule } from '@angular/forms';
     MatPaginatorModule,
     MatTableModule,
     MatDialogModule,
-    FormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

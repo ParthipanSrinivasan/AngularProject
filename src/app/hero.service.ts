@@ -92,4 +92,7 @@ export class HeroService {
         })
         return obser;
       }
+      inLogin(){
+        return !!localStorage.getItem('token');
+      }
 }

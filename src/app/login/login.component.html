@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+      <div class="col-12-lg bg-dark">
+        <div class="my-5">
+          <div class="text-center">
+            <div class="py-5" >
+              <h2 class="text-light">UserLogin</h2>
+             <form [formGroup]="phone" (ngSubmit)="onSubmit()">
+              <mat-form-field>
+                <mat-label>username</mat-label>
+                 <input type="text" maxlength="10" matInput placeholder="Enter Phone Number" formControlName="phonenumber" name="Phonenumber">
+                  </mat-form-field>
+                  <br>
+                    <mat-form-field>
+                    <mat-label>password</mat-label>
+                      <input type="text" maxlength="5" matInput placeholder="OTP-Valid" formControlName="otpvalid" name="Otp" >
+                      </mat-form-field>
+                      <br>
+                      <button mat-raised-button color="warn" type="submit" *ngIf="showinput">Saved</button>
+                       <button mat-raised-button color="warn" type="button" *ngIf="showinput1" (click)="onOtp()">OTP-Valid</button>
+             </form>
+                      </div>
+                      <mat-slide-toggle ><div class="text-light">Toggle me!</div></mat-slide-toggle>
+                      <br>
+                    <br>
+                <div class="text-light">
+                  <h4 *ngIf="val1">"valid"</h4>
+                  <h4 *ngIf="val2">"invalid"</h4>
+                  <h4 *ngIf="val3">"sucessfully"</h4>
+                  <h4 *ngIf="val4">"invalidotp"</h4>
+                  <h4>{{validcheck}}</h4>
+                  <a href="/listTable">Table</a>
+                </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
