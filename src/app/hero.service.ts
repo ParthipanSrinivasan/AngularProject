@@ -43,6 +43,7 @@ export class HeroService {
     {"id":145,"phone":9445886268,"otp":18234},
   ];
   id:any=this.elements;
+  idedit:any=""
     paginator:any[]=[];
       phoneCheck(value:any){
         const obser=new Observable((val)=>{
@@ -94,5 +95,17 @@ export class HeroService {
       }
       inLogin(){
         return !!localStorage.getItem('token');
+      }
+      onUpdate(update:any){
+        const obser=new Observable((val)=>{
+          this.id.forEach((element:any)=>{
+            if(element.id==update.id){
+              element["phone"]=update.phone;
+              element["otp"]=update.otp;
+            }
+          });
+          val.next(this.id);
+        })
+        return obser
       }
 }

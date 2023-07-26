@@ -1,1 +1,22 @@
-<h1>Hello world</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-12-lg my-5">
+            <div class="text-center">
+                <form (ngSubmit)="onEdit()" *ngIf="saved">
+                    <mat-form-field>
+                      <mat-label>username</mat-label>
+                       <input type="text" maxlength="10" matInput [(ngModel)]="heroservice.idedit.phone" name="phone">
+                        </mat-form-field>
+                        <br>
+                          <mat-form-field>
+                          <mat-label>password</mat-label>
+                            <input type="text" maxlength="5" matInput [(ngModel)]="heroservice.idedit.otp" name="otp" >
+                            </mat-form-field>
+                            <br>
+                            <button mat-raised-button color="warn" type="submit">Saved</button>
+                   </form>
+                   <h4>{{updated}}</h4>
+            </div>
+        </div>
+    </div>
+</div>

@@ -13,6 +13,7 @@ export class PaginatorComponent {
   constructor(public heroservice:HeroService, public matDialog:MatDialog ){
   this.heroservice.elements;
   this.heroservice.id;
+  this.heroservice.idedit;
  }
   length = 50;
   pageSize = 10;
@@ -41,6 +42,10 @@ export class PaginatorComponent {
    this.heroservice.editButton(this.edit,this.edit1).subscribe((element)=>{
       this.dataSource=element;
    });
+  }
+  editValue(value:any){
+    this.heroservice.idedit=value;
+    console.log(this.heroservice.idedit)
   }
 }
 

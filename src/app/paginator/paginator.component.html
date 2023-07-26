@@ -15,7 +15,7 @@
         <th mat-header-cell *matHeaderCellDef> Edit </th>
         <td mat-cell *matCellDef="let row">
           <button mat-icon-button color="warn" (click)="open(content,row.phone,row.otp,row.id)"> <mat-icon>edit</mat-icon> </button>
-          <button mat-icon-button color="warn" [routerLink]="['/edit/'+row.id]"> <mat-icon>delete</mat-icon> </button>
+          <button mat-icon-button color="warn" [routerLink]="['/edit/'+row.id]" (click)="editValue(row)"> <mat-icon>delete</mat-icon> </button>
         </td>
       </ng-container >
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
