@@ -18,10 +18,10 @@ export class PaginatorComponent {
   pageSize = 10;
   pageIndex = 0;
   pageSizeOptions = [5, 10, 25];
-  displayedColumns: string[] = ['phone','otp','action'];
+  displayedColumns: string[] = ['id','phone','otp','action'];
   dataSource:any;
   edit:any={
-    phone:"",otp:""
+   id:"", phone:"",otp:""
   }
   edit1:any;
   getServerData(e:PageEvent){
@@ -29,12 +29,13 @@ export class PaginatorComponent {
     this.dataSource=element;
     }); 
   }
-  open(content:any,a:any,b:any){
+  open(content:any,a:any,b:any,c:any){
     this.matDialog.open(content);
     this.edit.phone=a;
     this.edit.otp=b;
     let val=deepCopy(this.edit);
     this.edit1=val;
+    this.edit.id=c;
   }
   onSubmit(){
    this.heroservice.editButton(this.edit,this.edit1).subscribe((element)=>{

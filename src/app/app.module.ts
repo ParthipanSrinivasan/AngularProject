@@ -17,11 +17,13 @@ import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
+import { EditComponent } from './edit/edit.component';
 @NgModule({
   declarations: [
     AppComponent,
     PaginatorComponent,
-    LoginComponent
+    LoginComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,

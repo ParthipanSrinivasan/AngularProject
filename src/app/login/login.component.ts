@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { HeroService } from '../hero.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -25,7 +24,8 @@ export class LoginComponent {
      this.value.elements;
    }
    onSubmit(){
-     localStorage.setItem("token","9445886295")
+     localStorage.setItem("token","9445886295");
+     
      this.value.phoneCheck(this.phone.value.phonenumber).subscribe(
        (sucess)=>{
         // const validator =this.phone.get('phonenumber')?.errors;
@@ -71,4 +71,5 @@ export class LoginComponent {
    logout(){
     localStorage.removeItem("token");
    }
+  
 }
