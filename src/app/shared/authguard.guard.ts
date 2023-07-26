@@ -14,8 +14,10 @@ export class AuthguardGuard implements CanActivate {
     if(this.heroserivice.inLogin()){
       return true;
     }
-    this.router.navigate(['/login']);
-    return true;
+    else{
+      this.router.navigate(['/login']);
+      return false;
+    }
   }
   
 }

@@ -5,8 +5,8 @@ import { LoginComponent } from './login/login.component';
 import { AuthguardGuard } from './shared/authguard.guard';
 
 const routes: Routes = [
-  {path:"listTable",component:PaginatorComponent},
-  {path:"login",component:LoginComponent,canActivate:[AuthguardGuard]}
+  {path:"listTable",component:PaginatorComponent,canActivate:[AuthguardGuard]},
+  {path:"login",component:LoginComponent}
 ];
 
 @NgModule({

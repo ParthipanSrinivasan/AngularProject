@@ -25,7 +25,7 @@ export class LoginComponent {
      this.value.elements;
    }
    onSubmit(){
-     localStorage.setItem("phone","this.phone.value.phonenumber")
+     localStorage.setItem("token","9445886295")
      this.value.phoneCheck(this.phone.value.phonenumber).subscribe(
        (sucess)=>{
         // const validator =this.phone.get('phonenumber')?.errors;
@@ -67,5 +67,8 @@ export class LoginComponent {
            this.val4=false;
          },3000)
        });
+   }
+   logout(){
+    localStorage.removeItem("token");
    }
 }
