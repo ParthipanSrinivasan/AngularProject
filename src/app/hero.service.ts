@@ -98,7 +98,7 @@ export class HeroService {
       idValueGet(idvalue:any){
         const obser=new Observable((val)=>{
           this.dumy.forEach((element:any)=>{
-            if(element.id==idvalue.id){
+            if(element.id==idvalue){
               val.next(element);
             }
           })
@@ -113,7 +113,6 @@ export class HeroService {
               element["otp"]=update.otp;
             }
           });
-          val.next(this.dumy);
         })
         return obser;
       }

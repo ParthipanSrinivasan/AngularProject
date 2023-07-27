@@ -23,7 +23,7 @@ export class EditComponent implements OnInit {
   ngOnInit(){
     this.route.params.subscribe(params=>{
       let id = params['id'];
-      this.heroservice.idValueGet(params).subscribe((value)=>{
+      this.heroservice.idValueGet(id).subscribe((value)=>{
         this.editvalue=value;
       })
     });
