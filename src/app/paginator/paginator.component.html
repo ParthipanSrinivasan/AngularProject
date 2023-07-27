@@ -39,10 +39,16 @@
 <label for="">Phone</label>
 <input type="number" maxlength="10" class="form-control" formControlName="phone" name="phone">
 </div>
+<p class="alert alert-danger" *ngIf="update.controls['phone'].hasError('minlength')">
+  Your phone must be at least 10 characters long.
+</p>
 <div mat-dialog-content>
 <label for="">otp</label>
 <input type="number" maxlength="6" class="form-control" formControlName="otp" name="otp">
 </div>
+<p class="alert alert-danger" *ngIf="update.controls['otp'].hasError('minlength')">
+  Your phone must be at least 6 characters long.
+</p>
 <div mat-dialog-actions>
 <button mat-button mat-dialog-close type="submit" class="btn btn-outline-primary">Ok</button>
 <button mat-button mat-dialog-close class="btn btn-outline-danger">close</button>

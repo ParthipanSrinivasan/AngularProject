@@ -16,8 +16,8 @@ export class PaginatorComponent {
   this.heroservice.elements;
   this.heroservice.dumy;
  }
- update=new FormGroup ({ phone:new FormControl('',[Validators.required]),
-  otp:new FormControl('',[Validators.required]),
+ update=new FormGroup ({ phone:new FormControl('',[Validators.required,Validators.minLength(9),Validators.maxLength(10)]),
+  otp:new FormControl('',[Validators.required,Validators.minLength(5),Validators.maxLength(6)]),
   id:new FormControl('')
   });
   length = 50;
