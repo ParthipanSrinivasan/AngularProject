@@ -5,13 +5,19 @@
                 <form [formGroup]="update" (ngSubmit)="onEdit()" *ngIf="saved">
                     <mat-form-field>
                       <mat-label>username</mat-label>
-                       <input type="text" maxlength="10" matInput formControlName="phone" name="phone">
+                       <input type="text" maxlength="10" matInput formControlName="phone" name="phone" required>
                         </mat-form-field>
+                        <p class="alert alert-danger" *ngIf="update.controls['phone'].hasError('minlength')">
+                            Your phone must be at least 10 characters long.
+                        </p>
                         <br>
                           <mat-form-field>
                           <mat-label>password</mat-label>
-                            <input type="text" maxlength="6" matInput formControlName="otp" name="otp" >
+                            <input type="text" maxlength="6" matInput formControlName="otp" name="otp" required >
                             </mat-form-field>
+                            <p class="alert alert-danger" *ngIf="update.controls['otp'].hasError('minlength')">
+                                Your phone must be at least 10 characters long.
+                            </p>
                             <br>
                             <button mat-raised-button color="warn" type="submit">Saved</button>
                    </form>

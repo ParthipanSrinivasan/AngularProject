@@ -13,8 +13,8 @@ export class EditComponent implements OnInit {
   constructor(private route:ActivatedRoute,public heroservice:HeroService){
     this.heroservice.dumy;
   }
-  update=new FormGroup ({ phone:new FormControl('',[Validators.required]),
-  otp:new FormControl('',[Validators.required]),
+  update=new FormGroup ({ phone:new FormControl('',[Validators.required,Validators.minLength(9),Validators.maxLength(10)]),
+  otp:new FormControl('',[Validators.required,Validators.minLength(5),Validators.maxLength(6)]),
   id:new FormControl('')
   });
   saved:any=true;
@@ -32,7 +32,6 @@ export class EditComponent implements OnInit {
     });
   }
   onEdit(){
-    console.log(this.update.value)
     this.heroservice.onUpdate(this.update.value).subscribe((value)=>{
       this.saved=false;
       this.updated="Updated SuccesFully"
