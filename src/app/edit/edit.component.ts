@@ -25,11 +25,11 @@ export class EditComponent implements OnInit {
       let id = params['id'];
       this.heroservice.idValueGet(id).subscribe((value)=>{
         this.editvalue=value;
+        this.update.controls['id'].setValue(this.editvalue.id);
+        this.update.controls['phone'].setValue(this.editvalue.phone);
+        this.update.controls['otp'].setValue(this.editvalue.otp);
       })
     });
-    this.update.controls['id'].setValue(this.editvalue.id)
-    this.update.controls['phone'].setValue(this.editvalue.phone)
-    this.update.controls['otp'].setValue(this.editvalue.otp)
   }
   onEdit(){
     console.log(this.update.value)
