@@ -3,6 +3,8 @@ import { HeroService } from '../hero.service';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import {deepCopy} from "@angular-devkit/core/src/utils/object";
+import { FormControl, FormGroup } from '@angular/forms';
+import { Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-paginator',
@@ -12,9 +14,12 @@ import {deepCopy} from "@angular-devkit/core/src/utils/object";
 export class PaginatorComponent {
   constructor(public heroservice:HeroService, public matDialog:MatDialog ){
   this.heroservice.elements;
-  this.heroservice.id;
-  this.heroservice.idedit;
+  this.heroservice.dumy;
  }
+ update=new FormGroup ({ phone:new FormControl('',[Validators.required]),
+  otp:new FormControl('',[Validators.required]),
+  id:new FormControl('')
+  });
   length = 50;
   pageSize = 10;
   pageIndex = 0;
@@ -30,22 +35,16 @@ export class PaginatorComponent {
     this.dataSource=element;
     }); 
   }
-  open(content:any,a:any,b:any,c:any){
+  open(content:any,row:any){
     this.matDialog.open(content);
-    this.edit.phone=a;
-    this.edit.otp=b;
-    let val=deepCopy(this.edit);
-    this.edit1=val;
-    this.edit.id=c;
+    this.update.controls['phone'].setValue(row.phone);
+    this.update.controls['otp'].setValue(row.otp);
+    this.update.controls['id'].setValue(row.id);
   }
   onSubmit(){
-   this.heroservice.editButton(this.edit,this.edit1).subscribe((element)=>{
-      this.dataSource=element;
+   this.heroservice.editButton(this.update.value).subscribe((element)=>{
+      
    });
-  }
-  editValue(value:any){
-    this.heroservice.idedit=value;
-    console.log(this.heroservice.idedit)
   }
 }
 

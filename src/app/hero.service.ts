@@ -42,8 +42,7 @@ export class HeroService {
     {"id":144,"phone":9445886267,"otp":17234},
     {"id":145,"phone":9445886268,"otp":18234},
   ];
-  id:any=this.elements;
-  idedit:any=""
+  dumy:any=this.elements;
     paginator:any[]=[];
       phoneCheck(value:any){
         const obser=new Observable((val)=>{
@@ -77,17 +76,17 @@ export class HeroService {
       }
       ngAfter(pageSize:any,pageIndex:any){
         const obser=new Observable((val)=>{
-          val.next(this.id.slice((pageIndex*pageSize),
+          val.next(this.dumy.slice((pageIndex*pageSize),
             (pageIndex*pageSize)+pageSize));
         })
         return obser;
       }
-      editButton(edit:any,edit1:any){
+      editButton(updatvalue:any){
         const obser=new Observable((val)=>{
-          this.id.forEach((element:any,index:any) => {
-            if(element.phone==edit1.phone){
-              this.elements[index]=edit;
-              val.next(this.elements)
+          this.dumy.forEach((element:any,index:any) => {
+            if(updatvalue.id===this.dumy[index].id){
+              element['phone']=updatvalue.phone;
+              element['otp']=updatvalue.otp;
             }
            });
         })
@@ -96,16 +95,26 @@ export class HeroService {
       inLogin(){
         return !!localStorage.getItem('token');
       }
+      idValueGet(idvalue:any){
+        const obser=new Observable((val)=>{
+          this.dumy.forEach((element:any)=>{
+            if(element.id==idvalue.id){
+              val.next(element);
+            }
+          })
+        })
+        return obser;
+      }
       onUpdate(update:any){
         const obser=new Observable((val)=>{
-          this.id.forEach((element:any)=>{
+          this.dumy.forEach((element:any)=>{
             if(element.id==update.id){
               element["phone"]=update.phone;
               element["otp"]=update.otp;
             }
           });
-          val.next(this.id);
+          val.next(this.dumy);
         })
-        return obser
+        return obser;
       }
 }
