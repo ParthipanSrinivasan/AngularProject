@@ -111,6 +111,7 @@ export class HeroService {
             if(element.id==update.id){
               element["phone"]=update.phone;
               element["otp"]=update.otp;
+              val.next(element)
             }
           });
         })

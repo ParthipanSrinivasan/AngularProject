@@ -20,6 +20,8 @@ export class EditComponent implements OnInit {
   saved:any=true;
   updated:any 
   editvalue:any
+  minlength:any=false;
+  minotp:any=false;
   ngOnInit(){
     this.route.params.subscribe(params=>{
       let id = params['id'];
@@ -33,8 +35,11 @@ export class EditComponent implements OnInit {
   }
   onEdit(){
     this.heroservice.onUpdate(this.update.value).subscribe((value)=>{
-      this.saved=false;
       this.updated="Updated SuccesFully"
+     this.minlength=this.update.get('phone')?.hasError('minlength');
+     this.minotp=this.update.controls['otp'].hasError('minlength');
+     console.log(this.update.get('phone')?.valid);
+     console.log(this.update.get('phone')?.invalid);
     })
   }
 }

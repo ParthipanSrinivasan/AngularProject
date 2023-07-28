@@ -7,7 +7,7 @@
                       <mat-label>username</mat-label>
                        <input type="text" maxlength="10" matInput formControlName="phone" name="phone" required>
                         </mat-form-field>
-                        <p class="alert alert-danger" *ngIf="update.controls['phone'].hasError('minlength')">
+                        <p class="alert alert-danger" *ngIf="minlength">
                             Your phone must be at least 10 characters long.
                         </p>
                         <br>
@@ -15,7 +15,7 @@
                           <mat-label>password</mat-label>
                             <input type="text" maxlength="6" matInput formControlName="otp" name="otp" required >
                             </mat-form-field>
-                            <p class="alert alert-danger" *ngIf="update.controls['otp'].hasError('minlength')">
+                            <p class="alert alert-danger" *ngIf="minotp">
                                 Your phone must be at least 10 characters long.
                             </p>
                             <br>
